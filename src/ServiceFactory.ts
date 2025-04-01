@@ -1,5 +1,4 @@
-import { Injectable } from '@nestjs/common';
-import { Type } from '@nestjs/common/interfaces/type.interface';
+import { Injectable, Type } from '@nestjs/common';
 import { ModuleRef } from '@nestjs/core';
 import { UseCase } from './index';
 

@@ -11,7 +11,7 @@ import DeleteTask from '../UseCase/DeleteTask/DeleteTask';
 import GetAllTasksUseCase from '../UseCase/GetAllTasks/GetAllTasksUseCase';
 import SaveTaskDto from '../UseCase/SaveTask/SaveTaskDto';
 import UseCaseFactory from '../UseCase/UseCaseFactory';
-import SaveTaskUseCase from 'src/UseCase/SaveTask/SaveTaskUseCase';
+import SaveTaskUseCase from '../UseCase/SaveTask/SaveTaskUseCase';
 
 @Controller()
 export default class TaskController {
