@@ -7,9 +7,16 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum TaskPriority {
+  LOW
+  MEDIUM
+  HIGH
+}
+
 model Task {
   id        Int      @id @default(autoincrement())
   name      String
+  priority  TaskPriority  @default(MEDIUM)
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now()) @updatedAt
 }
