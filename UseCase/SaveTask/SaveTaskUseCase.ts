@@ -1,5 +1,5 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { Task } from '@prisma/client';
+import { Task, TaskPriority } from '@prisma/client';
 import { UseCase } from '../../index';
 import SaveTaskDto from './SaveTaskDto';
 import TaskRepository from '../../Repositories/TaskRepository';
@@ -20,6 +20,7 @@ export default class SaveTaskUseCase implements UseCase<Promise<Task>, [dto: Sav
     }
     // creation date or update date
     const now = new Date();
+    const priority = dto.priority ?? TaskPriority.MEDIUM;
 
     if (dto.id !== undefined) {
       const existing = await this.taskRepository.findById(dto.id);
@@ -31,12 +32,14 @@ export default class SaveTaskUseCase implements UseCase<Promise<Task>, [dto: Sav
       return this.taskRepository.save({
         id: dto.id,
         name: dto.name,
+        priority,
         updatedAt: now,
       });
     }
   
     return this.taskRepository.save({
       name: dto.name,
+      priority,
       createdAt: now,
       updatedAt: now,
     });
