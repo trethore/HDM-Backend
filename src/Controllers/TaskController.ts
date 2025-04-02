@@ -26,7 +26,6 @@ export default class TaskController {
   async create(@Body() dto: SaveTaskDto) {
     // @todo YOU MUST FOLLOW THE SAME IMPLEMENTATION AS OTHER ENDPOINTS
     return (await this.useCaseFactory.create(SaveTaskUseCase)).handle(dto);
-
   }
 
   @Patch('/tasks/:id')
